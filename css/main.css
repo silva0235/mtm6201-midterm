@@ -1,0 +1,527 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Karla", sans-serif;
+    background-color: #f3f0e9;
+    color: #000000;
+    line-height: 1.6;
+}
+
+/* Typography */
+
+h1, h2, h3, nav {
+    font-family: "Lato", sans-serif;
+    text-transform: uppercase;
+}
+
+h1 {
+    font-size: 2.027rem;
+}
+
+h2 {
+    font-size: 1.802rem;
+    line-height: normal;
+}
+
+h3 {
+    font-size: 1.424rem;
+}
+
+p {
+    font-size: 1rem;
+}
+
+/* Container wrapper (the maximum width of the wrapper within each section is 1200px) */
+
+section,
+.header-container,
+footer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+}
+
+/* Images (this part allows for the images to be responsive and prevent overflow) */
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* Skip Link (making sure its not visible on the page)*/
+
+.skip-link {
+    position: absolute;
+    left: -999px;
+}
+
+/* skip links visible on focus */
+.skip-link:focus {
+    left: 10px;
+    top: 10px;
+    background: #000;
+    color: #fff;
+    padding: 10px;
+}
+
+/* Section Subtitle (making sure all subtitles look the same) */
+
+.section-subtitle{
+    color: #d69e3d;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: .5rem;
+}
+
+/* header styles containing the logo and the nav */
+
+header {
+    background: #000;
+    color: #fff;
+}
+
+.header-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo img {
+    width: 180px;
+}
+
+.main-navigation ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.main-navigation a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* hero section adds the banner under the nav */
+
+ .hero {
+  box-sizing: border-box;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../images/hero-background.jpg");
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    color: white;
+    padding: 12rem 1rem;
+    max-width: none; /* allows the hero section to span the full width of the viewport */
+}
+
+.hero-content h1 {
+    margin-bottom: 1rem;
+    line-height: 4rem;
+}
+
+.hero-content p {
+    margin-bottom: 1.5rem;
+}
+
+/* animation (fade-in and upward movement effect on the hero content) */
+.hero-content {
+    animation: fadeUp 1s ease-out;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Buttons adds the same styling for each button */
+
+a {
+    text-decoration: none;
+}
+
+.hero a,
+.menu a,
+.btn-LearnMore,
+.btn-location {
+    background: #fff;
+    color: #000;
+    padding: .8rem 1.5rem;
+    font-weight: 600;
+    display: inline-block;
+    /* transition added */
+    transition: all 0.3s ease;
+}
+
+/* changes only the color for the learn more button */
+.btn-LearnMore {
+    background: #000;
+    color: #fff;
+}
+
+/* hover state (chages color of button and adds a lifting effect */
+.btn-LearnMore:hover,
+.btn-location:hover,
+.hero a:hover,
+.menu a:hover {
+    background-color: #d69e3d;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+/* focus state (Adds a visible outline when buttons are focused)*/
+.btn-LearnMore:focus,
+.btn-location:focus,
+.hero a:focus,
+.menu a:focus {
+    outline: 3px solid #d69e3d;
+    outline-offset: 2px;
+}
+
+/* welcome section */
+
+.welcome {
+    text-align: left;
+    padding-bottom: 0px;
+}
+
+/* Create the proper layout for the image grid */
+.image-grid {
+    margin-top: 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 2fr 1fr 1fr;
+    gap: 1rem;
+    min-height: 360px; /* controls overall block height; adjust as needed */
+}
+
+/* first image spans the full top row and remaining images form a 2x2 in the bottom half */
+.image-grid img:nth-child(1) {
+    grid-column: 1 / 3; /* columns */
+    grid-row: 1 / 2;    /* top row */
+}
+.image-grid img:nth-child(2) { grid-column: 1 / 2; grid-row: 2 / 3; }
+.image-grid img:nth-child(3) { grid-column: 2 / 3; grid-row: 2 / 3; }
+.image-grid img:nth-child(4) { grid-column: 1 / 2; grid-row: 3 / 4; }
+.image-grid img:nth-child(5) { grid-column: 2 / 3; grid-row: 3 / 4; }
+
+/* features */
+
+.features {
+    text-align: center;
+}
+
+.features-grid {
+    margin-top: 3rem;
+    display: grid;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+/* adjusts feature image size */
+.feature img {
+    width: 80px;
+    margin: 0 auto 1rem;
+}
+
+/* cta section */
+
+/* sets the formatting for the cta section incuding the formatting darkened banner background */
+.cta-section{
+    display: grid;
+    gap: 1rem;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 4rem 2rem;
+    text-align: center;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../images/coffee-shop.jpeg");
+}
+
+/* makes the heading in the cta section uppercase and adds spacing */
+.cta-section h2 {
+    line-height: 3rem;
+    margin-bottom: 40px;
+}
+
+/* the view location button transparent */
+.btn-location {
+    border: 2px solid #fff;
+    background: transparent;
+    color: #fff; 
+}
+
+/* about section */
+
+.about {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.about-content p {
+    margin-bottom: 1rem;
+}
+
+/* testimonial */
+
+.testimonials {
+    background: #000;
+    color: #fff;
+}
+
+.testimonial-grid {
+    display: grid;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+/* testimonials: overlay text on background images and align to bottom using flexbox */
+.testimonial {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;  /* pushes content to the bottom */ 
+    min-height: 780px;
+    padding: 1.25rem;
+    box-sizing: border-box;
+    color: #fff;
+}
+
+.testimonial blockquote {
+    margin: 0 0 0.5rem 0;
+    line-height: 1.4;
+}
+
+.testimonial .customer-info {
+    color: #d69e3d;
+    margin: 0;
+}
+
+/* adding each background banner */
+#testimonial-1 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../images/testimonial-1.jpeg");
+    background-size: cover;
+    background-position: center;
+}
+
+#testimonial-2 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../images/testimonial-2.jpeg");
+    background-size: cover;
+    background-position: center;
+}
+
+#testimonial-3 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../images/testimonial-3.jpeg");
+    background-size: cover;
+    background-position: center;
+}
+
+.divider {
+    border: none;
+    border-top: 1px solid #ccc;
+}
+
+/* footer */
+
+footer {
+    text-align: center;
+    background: #000;
+    color: #fff;
+    padding: 2rem;
+}
+
+/* tablet */
+
+@media (min-width: 768px) {
+
+    h1 {
+        font-size: 2.986rem;
+    }
+
+    h2 {
+        font-size: 2.488rem;
+    }
+
+    h3 {
+        font-size: 1.728rem;
+    }
+
+    /* create layout of images in the correct positioning */
+    .image-grid {
+        /* create a 3-column (2fr / 1fr / 1fr) and 2-row grid */
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 1rem;
+        min-height: 420px;
+        align-items: stretch;
+    }
+
+    .image-grid img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+    }
+
+    .image-grid img:nth-child(1) {
+        grid-column: 1 / 2;
+        grid-row: 1 / 3; /* rows */
+    }
+    .image-grid img:nth-child(2) { grid-column: 2 / 3; grid-row: 1 / 2; }
+    .image-grid img:nth-child(3) { grid-column: 3 / 4; grid-row: 1 / 2; }
+    .image-grid img:nth-child(4) { grid-column: 2 / 3; grid-row: 2 / 3; }
+    .image-grid img:nth-child(5) { grid-column: 3 / 4; grid-row: 2 / 3; }
+
+    .cta-section {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .about {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    /* Make the about image take more space and keep the content narrow */
+    .about-image {
+        flex: 1 1 60%;
+    }
+
+    .about-content {
+        flex: 0 0 auto;
+        max-width: 480px;
+    }
+
+    .about-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover;
+    }
+
+    .testimonial-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .testimonial {
+        min-height: 520px;
+        /* keep padding instead of large top offset so flexbox bottom alignment works */
+        padding: 1.5rem;
+    }
+
+}
+
+@media (min-width: 768px) and (max-width: 1099px) {
+
+    .features-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: auto auto;
+        column-gap: 2rem;
+        row-gap: 1.5rem;
+        align-items: start;
+    }
+
+    /* Place first feature at left top, second at right top, third centered on bottom */
+    .features-grid .feature:nth-child(1) {
+        grid-column: 1 / 3;
+        grid-row: 1;
+        justify-self: stretch;
+    }
+
+    .features-grid .feature:nth-child(2) {
+        grid-column: 3 / 5;
+        grid-row: 1;
+        justify-self: stretch;
+    }
+
+    .features-grid .feature:nth-child(3) {
+        grid-column: 1 / 5;
+        grid-row: 2;
+        justify-self: center;
+        width: 100%;
+        max-width: 320px; /* keep the centered card from stretching too wide */
+    }
+
+}
+
+/* desktop */
+
+@media (min-width: 1100px) {
+
+    h1 {
+        font-size: 3.815rem;
+    }
+
+    h2 {
+        font-size: 3.052rem;
+    }
+
+    h3 {
+        font-size: 1.953rem;
+    }
+
+    .header-container {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 10px;
+    }
+
+    /* using css grid to position images in the proper layout */
+    .image-grid {
+        /* create a 3-column (2fr / 1fr / 1fr) and 2-row grid */
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 1rem;
+        min-height: 420px;
+        align-items: stretch;
+    }
+
+    .image-grid img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+    }
+
+    .image-grid img:nth-child(1) {
+        grid-column: 1 / 2;
+        grid-row: 1 / 3; /* rows */
+    }
+    .image-grid img:nth-child(2) { grid-column: 2 / 3; grid-row: 1 / 2; }
+    .image-grid img:nth-child(3) { grid-column: 3 / 4; grid-row: 1 / 2; }
+    .image-grid img:nth-child(4) { grid-column: 2 / 3; grid-row: 2 / 3; }
+    .image-grid img:nth-child(5) { grid-column: 3 / 4; grid-row: 2 / 3; }
+
+    .testimonial-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .features-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    section{
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 80px 150px;
+    }
+
+}
